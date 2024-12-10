@@ -13,3 +13,14 @@ body {
   color: #202022;
   height: 100vh;
 }
+
+h5 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 100%;
+}
+h6 {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 110%;
+}

@@ -38,8 +38,7 @@
 // };
 
 // export default Header;
-"use client";
-import React from "react";
+import Image from "next/image";
 
 const Header = () => {
   return (
@@ -47,9 +46,30 @@ const Header = () => {
       <h2 className="text-center font-semibold text-[14px]">Молодая студия</h2>
 
       <div className="flex flex-row">
-        <div className="bg-gray-700 w-11 h-11 rounded-full z-30" />
-        <div className="bg-gray-800 w-11 h-11 rounded-full -ml-[11px] z-20" />
-        <div className="bg-gray-900 w-11 h-11 rounded-full -ml-[11px] z-10" />
+        <div className="relative w-11 h-11 z-30">
+          <Image
+            src="/team1.png"
+            alt="Team member 1"
+            fill
+            className="rounded-full object-cover"
+          />
+        </div>
+        <div className="relative w-11 h-11 -ml-[11px] z-20">
+          <Image
+            src="/team2.png"
+            alt="Team member 2"
+            fill
+            className="rounded-full object-cover"
+          />
+        </div>
+        <div className="relative w-11 h-11 -ml-[11px] z-10">
+          <Image
+            src="/team1.png"
+            alt="Team member 3"
+            fill
+            className="rounded-full object-cover"
+          />
+        </div>
       </div>
     </div>
   );

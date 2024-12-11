@@ -8,13 +8,13 @@ interface Props {
 const SmallCard = ({ variant, text }: Props) => {
   return (
     <div
-      className="rounded-[1.5rem] px-6 py-5 font-medium flex flex-row justify-between"
+      className="rounded-[20px] px-[25px] py-[20px] font-semibold text-[18px] flex flex-row justify-between"
       style={{
         backgroundColor: variant === "primary" ? "#202022" : "#FFFFFF",
         color: variant === "secondary" ? "#202022" : "#FFFFFF",
       }}
     >
-      {text} <ArrowUpRight opacity={0.8} />
+      {text} <ArrowUpRight color="#D2D2D2" size={24} />
     </div>
   );
 };

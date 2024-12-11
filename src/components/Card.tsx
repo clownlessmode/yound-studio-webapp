@@ -1,22 +1,38 @@
 import React from "react";
+import { ArrowUpRight } from "lucide-react";
 
 interface Props {
   header: string;
   description: string;
-  color: number;
+  color: string;
+  descriptionColor: string;
 }
 
-const Card: React.FC<Props> = ({ header, description, color }) => {
-  const backgroundColor = `hsl(${color}, 97%, 77%)`;
-  const headerColor = `hsl(${color}, 97%, 15%)`;
-  const descriptionColor = `hsl(${color}, 97%, 25%)`;
-
+const Card: React.FC<Props> = ({
+  header,
+  description,
+  color,
+  descriptionColor,
+}) => {
   return (
-    <div style={{ backgroundColor }} className="rounded-[1.25rem] p-5">
-      <h3 className="font-bold" style={{ color: headerColor }}>
+    <div
+      style={{ backgroundColor: color }}
+      className="rounded-[20px] px-[25px] pt-[20px] pb-[40px] relative"
+    >
+      <h3 className="font-semibold text-[18px]" style={{ color: "#202022" }}>
         {header}
       </h3>
-      <p style={{ color: descriptionColor }}>{description}</p>
+      <p
+        className="mt-[10px] text-[16px] font-medium whitespace-pre-wrap leading-[19px]"
+        style={{ color: descriptionColor }}
+      >
+        {description}
+      </p>
+      <ArrowUpRight
+        size={24}
+        className="absolute right-[24px] top-[24px]"
+        color={descriptionColor}
+      />
     </div>
   );
 };

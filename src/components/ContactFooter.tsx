@@ -10,9 +10,11 @@ const ContactFooter = () => {
       initial={{ y: "100%" }} // Начальное положение снизу
       animate={{ y: "0%" }} // Анимация до позиции на экране
       transition={{ duration: 0.5, ease: "easeOut" }} // Длительность анимации
-      className="text-center font-semibold bg-[#202022] bottom-0 w-full py-4 text-white px-4"
+      className="text-center font-medium bg-[#202022] leading-[17px] bottom-0 w-full pt-[15px] pb-[25px] text-white px-4 text-[14px]"
     >
-      Напишите Никите, чтобы задать вопрос
+      Напишите Никите
+      <br />
+      чтобы задать вопрос
     </motion.a>
   );
 };

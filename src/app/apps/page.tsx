@@ -26,7 +26,7 @@ const page = () => {
         </section>
         <section className="bg-white mt-[19px] rounded-[30px] aspect-[3/4] w-full overflow-hidden min-h-[386px]">
           <video
-            className="w-full h-full object-cover "
+            className="w-full h-full object-cover rounded-[30px]"
             autoPlay
             loop
             // muted

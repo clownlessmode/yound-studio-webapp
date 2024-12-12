@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Card from "./Card";
 import Drawer from "@/components/Drawer";
 import Image from "next/image";
+import Link from "next/link";
 const cards = [
   {
     header: "Приложения и визитки",
@@ -136,19 +137,14 @@ const CardList = () => {
             },
           }}
         >
-          <Drawer
-            media={card.media}
-            trigger={
-              <Card
-                descriptionColor={card.descriptionColor}
-                color={card.color}
-                header={card.header}
-                description={card.description}
-              />
-            }
-          >
-            {card.сontent}
-          </Drawer>
+          <Link href={"/apps"}>
+            <Card
+              descriptionColor={card.descriptionColor}
+              color={card.color}
+              header={card.header}
+              description={card.description}
+            />
+          </Link>
         </motion.div>
       ))}
     </motion.section>

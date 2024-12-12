@@ -22,7 +22,7 @@ const Page = () => {
 
   return (
     <>
-      <main className="pb-[40px] flex-1 overflow-y-auto h-full flex-grow px-[15px] w-full flex flex-col bg-[#FFFFFF]">
+      <main className="pb-[40px] flex-1 overflow-y-auto h-full flex-grow px-[15px] w-full flex flex-col bg-[#f1f1f9]">
         <section className="flex flex-row gap-[7.4px] items-center justify-between mt-[40px] ">
           <div
             className="w-6 h-6 bg-white/30 opacity-0 rounded-full my-2 top-1 right-3 backdrop-blur-lg flex items-center justify-center"

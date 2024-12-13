@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Play, X } from "lucide-react";
 import Link from "next/link";
 import ContactFooter from "@/components/ContactFooter";
@@ -19,6 +19,13 @@ const Page = () => {
       setIsPlaying(!isPlaying);
     }
   };
+
+  useEffect(() => {
+    // Останавливаем видео при монтировании компонента
+    if (videoRef.current) {
+      videoRef.current.pause();
+    }
+  }, []);
 
   return (
     <>
@@ -49,7 +56,6 @@ const Page = () => {
           <video
             ref={videoRef}
             className="w-full h-full object-cover rounded-[30px]"
-            autoPlay
             loop
             playsInline
           >

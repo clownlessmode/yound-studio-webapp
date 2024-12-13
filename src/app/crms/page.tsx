@@ -49,7 +49,6 @@ const Page = () => {
           <video
             ref={videoRef}
             className="w-full h-full object-cover rounded-[30px]"
-            autoPlay
             loop
             playsInline
           >

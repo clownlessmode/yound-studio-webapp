@@ -58,7 +58,7 @@ const Page = () => {
             loop
             playsInline
           >
-            <source src="/test video.mp4" type="video/mp4" />
+            <source src="/apps.webm" type="video/webm" />
             Ваш браузер не поддерживает воспроизведение видео.
           </video>
           {/* Анимация Плей и Пауза */}

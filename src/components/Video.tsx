@@ -4,9 +4,10 @@ import { AnimatePresence, motion } from "framer-motion";
 
 interface Props {
   src: string;
+  posterSrc?: string;
 }
 
-const Video: React.FC<Props> = ({ src }) => {
+const Video: React.FC<Props> = ({ src, posterSrc }) => {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [progress, setProgress] = useState<number>(0);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -119,6 +120,7 @@ const Video: React.FC<Props> = ({ src }) => {
         loop
         playsInline
         src={src}
+        poster={posterSrc ? posterSrc : "/placeholder.png"}
       >
         Ваш браузер не поддерживает воспроизведение видео.
       </video>

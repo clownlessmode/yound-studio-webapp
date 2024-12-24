@@ -1,5 +1,5 @@
 "use client";
-import { ArrowUpLeft, X } from "lucide-react";
+import { ArrowUpLeft, ArrowUpRight, X } from "lucide-react";
 import Link from "next/link";
 import ContactFooter from "@/components/ContactFooter";
 import Video from "@/components/Video";
@@ -53,10 +53,8 @@ const Page = () => {
             </p>
           </Link>
         </section>
-
         {/* Секция видео */}
         <Video src="/apps.webm" />
-
         <section className="bg-white rounded-[30px]  w-full py-[25px] font-semibold text-[24px] text-[#202022]">
           <h1 className="w-full text-center">Приложения и визитки</h1>
           <p className="font-medium text-[16px] text-[#202022] leading-[14.4px] w-full text-center mt-2">
@@ -117,6 +115,12 @@ const Page = () => {
             </p>
           </div>
         </section>
+        <Link
+          href={nextLink.link}
+          className="w-full items-center justify-center flex text-center mt-[25px] text-[#8A8D90] text-[16px] leading-[18.85px] font-medium"
+        >
+          {nextLink.title} <ArrowUpRight size={16} className="mt-[2px]" />
+        </Link>
       </main>
       <ContactFooter />
     </>

@@ -1,10 +1,9 @@
 "use client";
-import { ArrowUpLeft, ArrowUpRight, X } from "lucide-react";
+import { ArrowUpLeft, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import ContactFooter from "@/components/ContactFooter";
 import Video from "@/components/Video";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css"; // Минимальные стили для работы Swiper
 const examples = [

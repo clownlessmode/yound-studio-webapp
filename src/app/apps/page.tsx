@@ -72,7 +72,7 @@ const Page = () => {
                     href={item.link}
                     className="bg-[#F1F1F9] rounded-full py-[15px] px-[25px] flex items-center gap-[10px] w-fit"
                   >
-                    <p className="font-medium text-[16px] text-[#202022] leading-[12.6px]">
+                    <p className="font-medium text-[16px] text-[#202022] leading-[15.6px]">
                       {item.title}
                     </p>
                     <Image

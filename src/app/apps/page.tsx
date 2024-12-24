@@ -24,7 +24,7 @@ const examples = [
   },
 ];
 
-const nextLink = { title: "Перейти к CRM и управляемым базам", link: "crms" };
+const nextLink = { title: "Перейти к чат-ботам и воронкам ", link: "bots" };
 
 const Page = () => {
   return (
@@ -68,7 +68,8 @@ const Page = () => {
               whileTap={{ cursor: "grabbing" }}
             >
               {examples.map((item, index) => (
-                <motion.div
+                <motion.a
+                  href={item.link}
                   className={`bg-[#F1F1F9] rounded-full py-[15px] px-[25px] flex flex-row items-center justify-center gap-[10px] w-fit ${
                     index == 0 ? "ml-[25px]" : "ml-[10px]"
                   }`}
@@ -86,7 +87,7 @@ const Page = () => {
                     width={32}
                     height={32}
                   />
-                </motion.div>
+                </motion.a>
               ))}
             </motion.div>
           </div>

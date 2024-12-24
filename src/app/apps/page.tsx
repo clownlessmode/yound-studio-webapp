@@ -4,8 +4,15 @@ import Link from "next/link";
 import ContactFooter from "@/components/ContactFooter";
 import Video from "@/components/Video";
 import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css"; // Минимальные стили для работы Swiper
+import "swiper/css";
+import {
+  motion,
+  useTransform,
+  useMotionValue,
+  useAnimationControls,
+} from "framer-motion";
+import { useRef, useEffect, useState } from "react";
+
 const examples = [
   {
     title: "Визитка для Тимура Хлебникова",
@@ -27,6 +34,32 @@ const examples = [
 const nextLink = { title: "Перейти к чат-ботам и воронкам ", link: "bots" };
 
 const Page = () => {
+  const constraintsRef = useRef<HTMLDivElement>(null);
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const x = useMotionValue(0);
+  const controls = useAnimationControls();
+  const [dragConstraints, setDragConstraints] = useState({ left: 0, right: 0 });
+
+  useEffect(() => {
+    const calculateConstraints = () => {
+      if (constraintsRef.current && sliderRef.current) {
+        const containerWidth = constraintsRef.current.offsetWidth;
+        const sliderWidth = sliderRef.current.scrollWidth;
+        const maxDrag = containerWidth - sliderWidth - 50;
+
+        setDragConstraints({
+          left: maxDrag,
+          right: 0,
+        });
+      }
+    };
+
+    calculateConstraints();
+    window.addEventListener("resize", calculateConstraints);
+
+    return () => window.removeEventListener("resize", calculateConstraints);
+  }, []);
+
   return (
     <>
       <main className="pb-[40px] flex-1 overflow-y-auto h-full flex-grow px-[15px] w-full flex flex-col ">
@@ -53,24 +86,35 @@ const Page = () => {
             </p>
           </Link>
         </section>
-        {/* Секция видео */}
-        <Video src="/apps.webm" />
-        <section className="bg-white rounded-[30px]  w-full py-[25px] font-semibold text-[24px] text-[#202022]">
+        <Video src="/apps/video.mp4" />
+        <section className="bg-white rounded-[30px] w-full py-[25px] font-semibold text-[24px] text-[#202022]">
           <h1 className="w-full text-center">Приложения и визитки</h1>
           <p className="font-medium text-[16px] text-[#202022] leading-[14.4px] w-full text-center mt-2">
             Примеры готовых работ
           </p>
-          <div className="slider-container overflow-hidden w-full mt-[5px] px-[15px]">
-            <Swiper
-              spaceBetween={0} // Расстояние между слайдами
-              slidesPerView="auto" // Автоматический размер слайда
-              grabCursor={true} // Курсор "рука" при перетаскивании
+          <div
+            className="w-full mt-[5px] px-[25px] overflow-hidden"
+            ref={constraintsRef}
+          >
+            <motion.div
+              ref={sliderRef}
+              className="flex"
+              drag="x"
+              dragConstraints={dragConstraints}
+              dragElastic={0.1}
+              dragMomentum={true}
+              animate={controls}
+              style={{ x }}
             >
               {examples.map((item, index) => (
-                <SwiperSlide key={index} className="w-auto">
+                <motion.div
+                  key={index}
+                  className="flex-shrink-0 mr-4 last:mr-0"
+                  whileTap={{ scale: 0.95 }}
+                >
                   <a
                     href={item.link}
-                    className="bg-[#F1F1F9] rounded-full py-[15px] px-[25px] flex items-center gap-[10px] w-fit"
+                    className="bg-[#F1F1F9] rounded-full py-[15px] px-[25px] flex items-center gap-[10px] w-fit whitespace-nowrap"
                   >
                     <p className="font-medium text-[16px] text-[#202022] leading-[15.6px]">
                       {item.title}
@@ -83,9 +127,9 @@ const Page = () => {
                       height={32}
                     />
                   </a>
-                </SwiperSlide>
+                </motion.div>
               ))}
-            </Swiper>
+            </motion.div>
           </div>
           <div className="text-container font-medium text-[16px] text-[#202022] leading-[19px] mt-6 px-[25px]">
             <p>

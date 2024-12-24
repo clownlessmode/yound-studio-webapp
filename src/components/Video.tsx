@@ -9,7 +9,7 @@ interface Props {
 
 const Video: React.FC<Props> = ({ src, posterSrc }) => {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
-  const [progress, setProgress] = useState<number>(0);
+  const [progress, setProgress] = useState<number>(0.0); // Прогресс от 0.0 до 1.0
   const videoRef = useRef<HTMLVideoElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef<boolean>(false);
@@ -113,12 +113,15 @@ const Video: React.FC<Props> = ({ src, posterSrc }) => {
     <section
       onClick={handlePlayPause}
       className="bg-white relative mt-[19px] rounded-[30px] aspect-[3/4] w-full overflow-hidden min-h-[386px]"
+      style={{ minHeight: "calc(100vw * 4/3 - 30px)" }}
     >
       <video
         ref={videoRef}
         className="w-full h-full object-cover rounded-[30px]"
         loop
         playsInline
+        autoPlay
+        // muted
         src={src}
         poster={posterSrc ? posterSrc : "/placeholder.png"}
       >
@@ -130,10 +133,10 @@ const Video: React.FC<Props> = ({ src, posterSrc }) => {
         ref={timelineRef}
         onMouseDown={startDragging}
         onTouchStart={startDragging}
-        className="absolute bottom-4 left-4 right-4 h-1 bg-white/30 rounded-full overflow-hidden cursor-pointer touch-none"
+        className="absolute bottom-4 left-4 right-4 h-1 bg-gray-300/30 rounded-full overflow-hidden cursor-pointer touch-none"
       >
         <div
-          className="h-full bg-white/70 rounded-full"
+          className="h-full bg-gray-300/70 rounded-full"
           style={{ width: `${progress}%` }}
         />
       </div>

@@ -5,7 +5,8 @@ import ContactFooter from "@/components/ContactFooter";
 import Video from "@/components/Video";
 import Image from "next/image";
 import { motion } from "framer-motion";
-
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css"; // Минимальные стили для работы Swiper
 const examples = [
   {
     title: "Визитка для Тимура Хлебникова",
@@ -60,36 +61,32 @@ const Page = () => {
           <p className="font-medium text-[16px] text-[#202022] leading-[14.4px] w-full text-center mt-2">
             Примеры готовых работ
           </p>
-          <div className="slider-container overflow-hidden w-full mt-[5px]">
-            <motion.div
-              className="slider flex gap-[4px]"
-              drag="x"
-              dragConstraints={{ left: -610, right: 0 }} // Ограничения для прокрутки
-              whileTap={{ cursor: "grabbing" }}
+          <div className="slider-container overflow-hidden w-full mt-[5px] px-[15px]">
+            <Swiper
+              spaceBetween={0} // Расстояние между слайдами
+              slidesPerView="auto" // Автоматический размер слайда
+              grabCursor={true} // Курсор "рука" при перетаскивании
             >
               {examples.map((item, index) => (
-                <motion.a
-                  href={item.link}
-                  className={`bg-[#F1F1F9] rounded-full py-[15px] px-[25px] flex flex-row items-center justify-center gap-[10px] w-fit ${
-                    index == 0 ? "ml-[25px]" : "ml-[10px]"
-                  }`}
-                  key={index}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <p className="font-medium text-[16px] text-[#202022] leading-[12.6px] text-nowrap">
-                    {item.title}
-                  </p>
-                  <Image
-                    alt=""
-                    src={item.image}
-                    className="w-8 h-8 rounded-full"
-                    width={32}
-                    height={32}
-                  />
-                </motion.a>
+                <SwiperSlide key={index} className="w-auto">
+                  <a
+                    href={item.link}
+                    className="bg-[#F1F1F9] rounded-full py-[15px] px-[25px] flex items-center gap-[10px] w-fit"
+                  >
+                    <p className="font-medium text-[16px] text-[#202022] leading-[12.6px]">
+                      {item.title}
+                    </p>
+                    <Image
+                      alt=""
+                      src={item.image}
+                      className="w-8 h-8 rounded-full"
+                      width={32}
+                      height={32}
+                    />
+                  </a>
+                </SwiperSlide>
               ))}
-            </motion.div>
+            </Swiper>
           </div>
           <div className="text-container font-medium text-[16px] text-[#202022] leading-[19px] mt-6 px-[25px]">
             <p>

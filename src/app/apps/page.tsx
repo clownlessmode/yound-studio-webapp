@@ -33,10 +33,10 @@ const Page = () => {
         <section className="flex flex-row gap-[7.4px] items-center justify-between mt-[40px] ">
           <Link
             href={"/"}
-            className="py-[10px] px-[14px] bg-white rounded-full my-2 top-1 right-3 backdrop-blur-lg flex items-center justify-center"
+            className="py-[12px] px-[16px] bg-white rounded-full my-2 top-1 right-3 backdrop-blur-lg flex items-center justify-center"
           >
-            <ArrowUpLeft size={14} />
-            <p className="font-medium text-[12px] leading-[14.14px] text-black">
+            <ArrowUpLeft size={16} />
+            <p className="font-medium text-[14px] leading-[16.14px] text-black">
               Назад
             </p>
           </Link>

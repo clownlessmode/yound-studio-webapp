@@ -36,7 +36,10 @@ const cardAnimation = {
 
 const SmallCardList = () => {
   return (
-    <motion.section className="flex flex-col gap-2 mt-[20px]" initial="hidden">
+    <motion.section
+      className="flex flex-col gap-[5px] mt-[20px]"
+      initial="hidden"
+    >
       {cards.map((card, index) => (
         <motion.div
           key={index}

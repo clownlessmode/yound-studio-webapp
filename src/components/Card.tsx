@@ -1,8 +1,8 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { ArrowUpRight } from "lucide-react";
 
 interface Props {
-  header: string;
+  header: ReactNode;
   description: string;
   color: string;
   descriptionColor: string;
@@ -19,7 +19,10 @@ const Card: React.FC<Props> = ({
       style={{ backgroundColor: color }}
       className="rounded-[20px] px-[25px] pt-[20px] pb-[40px] relative"
     >
-      <h3 className="font-semibold text-[18px]" style={{ color: "#202022" }}>
+      <h3
+        className="font-semibold text-[18px] flex flex-row items-center"
+        style={{ color: "#202022" }}
+      >
         {header}
       </h3>
       <p

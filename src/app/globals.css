@@ -8,6 +8,14 @@
   }
 }
 
+.text-container p {
+  margin-bottom: 15px; /* Межпараграфный отступ */
+}
+
+.text-container p:last-child {
+  margin-bottom: 0; /* Убираем отступ у последнего абзаца */
+}
+
 body {
   background-color: #f1f1f9;
   color: #202022;

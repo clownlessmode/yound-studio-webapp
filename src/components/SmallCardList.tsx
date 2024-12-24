@@ -8,12 +8,19 @@ import SmallCard from "./SmallCard";
 const cards = [
   {
     text: "Видео презентация: о нас",
+    link: "#",
   },
   {
     text: "Успешные работы",
+    link: "#",
   },
   {
     text: "Телеграм канал студии",
+    link: "#",
+  },
+  {
+    text: "Задать вопрос Никите",
+    link: "https://t.me/chendev1",
   },
 ];
 
@@ -29,10 +36,7 @@ const cardAnimation = {
 
 const SmallCardList = () => {
   return (
-    <motion.section
-      className="flex flex-col gap-2 mt-[20px] mb-[86px]"
-      initial="hidden"
-    >
+    <motion.section className="flex flex-col gap-2 mt-[20px]" initial="hidden">
       {cards.map((card, index) => (
         <motion.div
           key={index}
@@ -40,12 +44,14 @@ const SmallCardList = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{
-            once: false, // Можно анимировать при каждом входе в область видимости
-            amount: 0.5, // Когда 50% элемента виден
+            once: false,
+            amount: 0.5,
           }}
         >
           <SmallCard
-            variant={index > 0 ? "secondary" : "primary"}
+            link={card.link}
+            index={index}
+            variant={index < cards.length - 1 ? "secondary" : "primary"}
             text={card.text}
           />
         </motion.div>

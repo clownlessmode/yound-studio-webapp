@@ -6,6 +6,7 @@ import SmallCardList from "../components/SmallCardList";
 import ContactFooter from "@/components/ContactFooter";
 import ScreenContainer from "../components/ScreenContainer";
 import Drawer from "@/components/Drawer";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <CardList />
         <Line />
         <SmallCardList />
+        <Footer />
       </ScreenContainer>
       <ContactFooter />
     </>

@@ -118,7 +118,6 @@ const Video: React.FC<Props> = ({ src, posterSrc }) => {
 
   return (
     <section
-      onClick={handlePlayPause}
       className="bg-white relative mt-[19px] rounded-[30px] aspect-[3/4] w-full overflow-hidden min-h-[386px]"
       style={{ minHeight: "calc(100vw * 4/3 - 30px)" }}
     >
@@ -129,6 +128,7 @@ const Video: React.FC<Props> = ({ src, posterSrc }) => {
         playsInline
         autoPlay
         muted={isMuted}
+        onClick={handlePlayPause}
         src={src}
         // poster={posterSrc ? posterSrc : "/placeholder.png"}
       >
@@ -150,7 +150,7 @@ const Video: React.FC<Props> = ({ src, posterSrc }) => {
 
       <button
         onClick={toggleMute}
-        className="absolute top-4 right-4 bg-gray-300/30 bg-opacity-50 p-2 rounded-full text-white"
+        className="absolute z-50 top-4 right-4 bg-gray-300/30 bg-opacity-50 p-2 rounded-full text-white"
       >
         {isMuted ? (
           <svg

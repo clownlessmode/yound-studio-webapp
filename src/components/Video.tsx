@@ -130,7 +130,7 @@ const Video: React.FC<Props> = ({ src, posterSrc }) => {
         autoPlay
         muted={isMuted}
         src={src}
-        poster={posterSrc ? posterSrc : "/placeholder.png"}
+        // poster={posterSrc ? posterSrc : "/placeholder.png"}
       >
         Ваш браузер не поддерживает воспроизведение видео.
       </video>

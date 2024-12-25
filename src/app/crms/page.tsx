@@ -55,7 +55,7 @@ const Page = () => {
                 className="flex-shrink-0 mr-4 last:mr-0"
                 whileTap={{ scale: 0.95 }}
               >
-                <div className="bg-[#F1F1F9] rounded-full py-[15px] px-[25px] flex items-center gap-[10px] w-fit whitespace-nowrap">
+                <div className="bg-[#F1F1F9] rounded-full py-[20px] px-[60px] flex items-center gap-[10px] w-fit whitespace-nowrap">
                   <p className="font-medium text-[16px] text-[#C5C5CA] leading-[15.6px]">
                     Попробовать CRM 🔥
                   </p>
@@ -84,7 +84,7 @@ const Page = () => {
             </p>
             <p>— общаться с каждым отдельным пользователем через чат-бот;</p>
             <p>— получать уведомления в сообщения о каждых новых изменениях.</p>
-            <p>
+            <p className="pb-5">
               Можем реализовать любую другую функцию, которая поможет
               контролировать процессы
             </p>

@@ -37,7 +37,7 @@ const Page = () => {
         </section>
         <Video src="/bots/video.webm" />
         <section className="bg-white rounded-[30px] w-full py-[25px] font-semibold text-[24px] text-[#202022]">
-          <h1 className="w-full text-center">Чат боты и воронки</h1>
+          <h1 className="w-full text-center">Чат-боты и воронки</h1>
           <p className="font-medium text-[16px] text-[#202022] leading-[14.4px] w-full text-center mt-2">
             Примеры готовых работ
           </p>
@@ -47,7 +47,7 @@ const Page = () => {
                 className="flex-shrink-0 mr-4 last:mr-0"
                 whileTap={{ scale: 0.95 }}
               >
-                <div className="bg-[#F1F1F9] rounded-full py-[15px] px-[25px] flex items-center gap-[10px] w-fit whitespace-nowrap">
+                <div className="bg-[#F1F1F9] rounded-full py-[20px] px-[60px] flex items-center gap-[10px] w-fit whitespace-nowrap">
                   <p className="font-medium text-[16px] text-[#C5C5CA] leading-[15.6px]">
                     В работе...
                   </p>
@@ -70,7 +70,7 @@ const Page = () => {
                 viewBox="0 0 19 21"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="absolute"
+                className="absolute left-0"
               >
                 <path
                   d="M8.16744 4.7216C8.32852 4.28629 8.94421 4.28629 9.10529 4.7216L10.8892 9.54249C10.9398 9.67935 11.0477 9.78725 11.1846 9.83789L16.0055 11.6218C16.4408 11.7829 16.4408 12.3986 16.0055 12.5596L11.1846 14.3435C11.0477 14.3942 10.9398 14.5021 10.8892 14.6389L9.10529 19.4598C8.94421 19.8951 8.32852 19.8951 8.16744 19.4598L6.38355 14.6389C6.33291 14.5021 6.225 14.3942 6.08814 14.3435L1.26725 12.5596C0.831943 12.3986 0.831944 11.7829 1.26725 11.6218L6.08814 9.83789C6.225 9.78725 6.33291 9.67935 6.38355 9.54249L8.16744 4.7216Z"
@@ -113,7 +113,7 @@ const Page = () => {
               надоедливые и частые вопросы, особенно для компаний с большой
               клиентской базой.
             </p>
-            <p>
+            <p className="pb-5">
               <span className="text-[16px] font-semibold leading-[19px]">
                 Оформление заказов <br />
               </span>

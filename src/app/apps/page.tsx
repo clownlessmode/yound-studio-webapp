@@ -93,7 +93,7 @@ const Page = () => {
             Примеры готовых работ
           </p>
           <div
-            className="w-full mt-[5px] px-[25px] overflow-hidden"
+            className="w-full mt-[5px] pl-[25px] overflow-hidden"
             ref={constraintsRef}
           >
             <motion.div
@@ -109,7 +109,7 @@ const Page = () => {
               {examples.map((item, index) => (
                 <motion.div
                   key={index}
-                  className="flex-shrink-0 mr-4 last:mr-0"
+                  className="flex-shrink-0 mr-1 last:mr-0"
                   whileTap={{ scale: 0.95 }}
                 >
                   <a
@@ -147,7 +147,7 @@ const Page = () => {
               Представьте разнообразие приложений в App Store — все это теперь
               можно создать в Telegram, в одном месте.
             </p>
-            <p>
+            <p className="pb-5">
               Понимаем, что сейчас сложно понять, что можно реализовать. Важно,
               чтобы созданное приложение было удобно использовать в Телеграме.
               Например, в приложении можно реализовать бронирование

@@ -76,7 +76,7 @@ const Page = () => {
               >
                 <Link
                   href={"https://t.me/sadranomBot"}
-                  className="bg-[#FFFFFF] rounded-full py-[15px] px-[25px] flex items-center gap-[10px] w-fit whitespace-nowrap"
+                  className="bg-[#FFFFFF] rounded-full py-[18px] px-[30px] flex items-center gap-[10px] w-fit whitespace-nowrap"
                 >
                   <p className="font-medium text-[16px] text-[#202022] leading-[15.6px]">
                     @sadranomBot

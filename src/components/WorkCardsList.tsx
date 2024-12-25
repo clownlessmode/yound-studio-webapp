@@ -2,10 +2,8 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import SmallCard from "./SmallCard";
 import WorkCard from "./WorkCard";
 
-// Карточки
 const cards = [
   {
     title: "Визитка для Тимура Хлебникова",
@@ -13,6 +11,7 @@ const cards = [
     image: "/works/timur.webp",
     link: "https://t.me/Khlebnikov_pro_bot",
     color: "#000000",
+    bgColor: "#FFFFFF",
   },
   {
     title: "CRM-система",
@@ -21,6 +20,7 @@ const cards = [
     image: "/works/crm.webp",
     link: "https://t.me/youndstudio_crm_example_bot",
     color: "#ffffff",
+    bgColor: "#3076D8",
   },
   {
     title: "Магазин Радуга",
@@ -28,6 +28,7 @@ const cards = [
     image: "/works/raduga.webp",
     link: "https://t.me/raduga_mich_bot",
     color: "#000000",
+    bgColor: "#FFFFFF",
   },
   {
     title: "Садроном",
@@ -36,6 +37,7 @@ const cards = [
     image: "/works/sadranom.webp",
     link: "https://t.me/sadranomBot",
     color: "#000000",
+    bgColor: "#FFFFFF",
   },
 ];
 
@@ -62,11 +64,12 @@ const WorkCardsList = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{
-            once: true, // Карточка появляется только один раз
-            amount: 0.2, // Появляется, даже если виден 1% (или 1 пиксель)
+            once: true,
+            amount: 0.2,
           }}
         >
           <WorkCard
+            bgColor={card.bgColor}
             color={card.color}
             image={card.image}
             link={card.link}

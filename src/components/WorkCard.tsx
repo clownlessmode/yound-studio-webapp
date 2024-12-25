@@ -5,9 +5,17 @@ interface Props {
   description: string;
   link: string;
   image: string;
+  bgColor: string;
   color: string;
 }
-const WorkCard: FC<Props> = ({ title, description, link, image, color }) => {
+const WorkCard: FC<Props> = ({
+  title,
+  description,
+  link,
+  image,
+  color,
+  bgColor,
+}) => {
   return (
     <Link
       href={link}
@@ -17,8 +25,9 @@ const WorkCard: FC<Props> = ({ title, description, link, image, color }) => {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
+        backgroundColor: bgColor,
       }}
-      className="bg-white rounded-[30px] w-full py-[25px] font-semibold text-[24px] text-[#202022] h-full flex items-end"
+      className="rounded-[30px] w-full py-[25px] font-semibold text-[24px] text-[#202022] h-full flex items-end"
     >
       <div
         className="mb-[10px] text-container font-medium text-[16px] leading-[19px] px-[25px] w-full"

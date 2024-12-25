@@ -86,7 +86,7 @@ const Page = () => {
             </p>
           </Link>
         </section>
-        <Video src="/apps/video.webm" />
+        <Video src="/apps/video.mp4" />
         <section className="bg-white rounded-[30px] w-full py-[25px] font-semibold text-[24px] text-[#202022]">
           <h1 className="w-full text-center">Приложения и визитки</h1>
           <p className="font-medium text-[16px] text-[#202022] leading-[14.4px] w-full text-center mt-2">

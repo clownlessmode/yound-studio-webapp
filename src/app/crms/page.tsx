@@ -35,7 +35,7 @@ const Page = () => {
             </p>
           </Link>
         </section>
-        <Video src="/crms/video" />
+        <Video src="crms/video" />
         <section className="relative bg-white rounded-[30px] w-full py-[25px] font-semibold text-[24px] text-[#202022]">
           <div className="absolute top-[-15px] flex justify-center w-full">
             <div className=" bg-[#8ECFFD]  py-[6px] px-[22px] rounded-full text-[#2C516B] text-[14px] font-medium">

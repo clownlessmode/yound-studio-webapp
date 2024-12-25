@@ -35,7 +35,7 @@ const Page = () => {
             </p>
           </Link>
         </section>
-        <Video src="/bots/video" />
+        <Video src="bots/video" />
         <section className="bg-white rounded-[30px] w-full py-[25px] font-semibold text-[24px] text-[#202022]">
           <h1 className="w-full text-center">Чат-боты и воронки</h1>
           <p className="font-medium text-[16px] text-[#202022] leading-[14.4px] w-full text-center mt-2">

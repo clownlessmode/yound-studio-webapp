@@ -132,7 +132,8 @@ const Video: React.FC<Props> = ({ src, posterSrc }) => {
         src={src}
         // poster={posterSrc ? posterSrc : "/placeholder.png"}
       >
-        Ваш браузер не поддерживает воспроизведение видео.
+        <source src={`${src}.mp4`} type="video/mp4" />
+        <source src={`${src}.webm`} type="video/webm" />
       </video>
 
       {/* Временная шкала */}

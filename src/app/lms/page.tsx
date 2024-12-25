@@ -39,7 +39,7 @@ const Page = () => {
             </p>
           </Link>
         </section>
-        <Video src="/lms/video.webm" />
+        <Video src="/lms/video" />
         <section
           style={{
             background: "radial-gradient(circle, #CA9DFF 59%, #FFFFFF 100%)",

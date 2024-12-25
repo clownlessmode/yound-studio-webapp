@@ -8,15 +8,15 @@ import SmallCard from "./SmallCard";
 const cards = [
   {
     text: "Видео презентация: о нас",
-    link: "#",
+    link: "/aboutus",
   },
   {
     text: "Успешные работы",
-    link: "#",
+    link: "/works",
   },
   {
     text: "Телеграм канал студии",
-    link: "#",
+    link: "https://t.me/mol_stud",
   },
   {
     text: "Задать вопрос Никите",

@@ -4,8 +4,7 @@ import Link from "next/link";
 import ContactFooter from "@/components/ContactFooter";
 import Video from "@/components/Video";
 import "swiper/css";
-
-const nextLink = { title: "Перейти к успешным работам", link: "works" };
+import WorkCardsList from "@/components/WorkCardsList";
 
 const Page = () => {
   return (
@@ -35,25 +34,9 @@ const Page = () => {
           </Link>
         </section>
         <h1 className="w-full text-center text-[24px] text-[#202022] font-semibold">
-          Видео-презентация: о нас
+          Успешные работы
         </h1>
-        <Video src="/bots/video.webm" />
-        <section className="bg-white rounded-[30px] w-full py-[25px] font-semibold text-[24px] text-[#202022]">
-          <div className="text-container font-medium text-[16px] text-[#202022] leading-[19px] px-[25px]">
-            <p>Привет! На связи Молодая студия.</p>
-            <p>
-              Мы хотим создавать полезные продукты в Телеграме. Миллионы
-              пользователей заходят в мессенджер каждый день, давайте это
-              использовать и придумаем что-то крутое!
-            </p>
-          </div>
-        </section>
-        <Link
-          href={nextLink.link}
-          className="w-full items-center justify-center flex text-center mt-[25px] text-[#8A8D90] text-[16px] leading-[18.85px] font-medium"
-        >
-          {nextLink.title} <ArrowUpRight size={16} className="mt-[2px]" />
-        </Link>
+        <WorkCardsList />
       </main>
       <ContactFooter />
     </>

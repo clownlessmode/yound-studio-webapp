@@ -5,13 +5,15 @@ import ContactFooter from "@/components/ContactFooter";
 import Video from "@/components/Video";
 import Image from "next/image";
 import "swiper/css";
-import {
-  motion,
-  useTransform,
-  useMotionValue,
-  useAnimationControls,
-} from "framer-motion";
+import { motion, useAnimation, useMotionValue } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
+import Autoplay from "embla-carousel-autoplay";
+
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 
 const examples = [
   {
@@ -36,10 +38,12 @@ const nextLink = { title: "Перейти к чат-ботам и воронка
 const Page = () => {
   const constraintsRef = useRef<HTMLDivElement>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
-  const x = useMotionValue(0);
-  const controls = useAnimationControls();
+  const x = useMotionValue(0); // Значение для прокрутки
+  const controls = useAnimation(); // Контроллер для анимаций
   const [dragConstraints, setDragConstraints] = useState({ left: 0, right: 0 });
+  const [isDragging, setIsDragging] = useState(false); // Состояние для отслеживания перетаскивания
 
+  // Расчёт максимальных ограничений для движения слайдера
   useEffect(() => {
     const calculateConstraints = () => {
       if (constraintsRef.current && sliderRef.current) {
@@ -59,6 +63,28 @@ const Page = () => {
 
     return () => window.removeEventListener("resize", calculateConstraints);
   }, []);
+
+  // Автопролистывание слайдера
+  useEffect(() => {
+    const sliderWidth = sliderRef.current?.scrollWidth || 0;
+    const containerWidth = constraintsRef.current?.offsetWidth || 0;
+
+    const cycleSlider = async () => {
+      if (!isDragging && sliderWidth > containerWidth) {
+        await controls.start({
+          x: -(sliderWidth - containerWidth), // Прокрутка слайдера влево
+          transition: { duration: 10, ease: "linear" },
+        });
+
+        controls.set({ x: 0 }); // Возвращаем слайдер в начало
+        cycleSlider(); // Рекурсивный вызов для бесконечной прокрутки
+      }
+    };
+
+    cycleSlider();
+
+    return () => controls.stop(); // Останавливаем анимацию при размонтировании
+  }, [controls, isDragging]);
 
   return (
     <>
@@ -92,45 +118,44 @@ const Page = () => {
           <p className="font-medium text-[16px] text-[#202022] leading-[14.4px] w-full text-center mt-2">
             Примеры готовых работ
           </p>
-          <div
-            className="w-full mt-[5px] pl-[25px] overflow-hidden"
-            ref={constraintsRef}
+          <Carousel
+            plugins={[
+              Autoplay({
+                delay: 2000,
+              }),
+            ]}
+            opts={{
+              loop: true,
+            }}
           >
-            <motion.div
-              ref={sliderRef}
-              className="flex"
-              drag="x"
-              dragConstraints={dragConstraints}
-              dragElastic={0.1}
-              dragMomentum={true}
-              animate={controls}
-              style={{ x }}
-            >
+            <CarouselContent className="mt-[5px] pl-[25px]">
               {examples.map((item, index) => (
-                <motion.div
-                  key={index}
-                  className="flex-shrink-0 mr-1 last:mr-0"
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <a
-                    href={item.link}
-                    className="bg-[#F1F1F9] rounded-full py-[18px] px-[30px] flex items-center gap-[10px] w-fit whitespace-nowrap"
+                <CarouselItem key={index}>
+                  <motion.div
+                    key={index}
+                    className="flex-shrink-0 mr-1 last:mr-0"
+                    whileTap={{ scale: 0.95 }}
                   >
-                    <p className="font-medium text-[16px] text-[#202022] leading-[15.6px]">
-                      {item.title}
-                    </p>
-                    <Image
-                      alt=""
-                      src={item.image}
-                      className="w-8 h-8 rounded-full"
-                      width={32}
-                      height={32}
-                    />
-                  </a>
-                </motion.div>
+                    <a
+                      href={item.link}
+                      className="bg-[#F1F1F9] rounded-full py-[18px] px-[30px] flex items-center gap-[10px] w-fit whitespace-nowrap"
+                    >
+                      <p className="font-medium text-[16px] text-[#202022] leading-[15.6px]">
+                        {item.title}
+                      </p>
+                      <Image
+                        alt=""
+                        src={item.image}
+                        className="w-8 h-8 rounded-full"
+                        width={32}
+                        height={32}
+                      />
+                    </a>
+                  </motion.div>
+                </CarouselItem>
               ))}
-            </motion.div>
-          </div>
+            </CarouselContent>
+          </Carousel>
           <div className="text-container font-medium text-[16px] text-[#202022] leading-[19px] mt-6 px-[25px]">
             <p>
               Приложения в Telegram — это интерактивные страницы, которые

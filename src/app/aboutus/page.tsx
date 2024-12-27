@@ -38,7 +38,7 @@ const Page = () => {
         <h1 className="w-full text-center text-[24px] text-[#202022] font-semibold">
           Видео-презентация: о нас
         </h1>
-        <Video src="bots/video" />
+        <Video src="/video" />
         <section className="bg-white rounded-[30px] w-full py-[25px] font-semibold text-[24px] text-[#202022]">
           <div className="text-container font-medium text-[16px] text-[#202022] leading-[19px] px-[25px]">
             <p>Привет! На связи Молодая студия.</p>
